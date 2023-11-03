@@ -4,4 +4,5 @@ import java.lang.*;
 public class CarManager {
     int lo;
     int a;
+    lol;
 }
