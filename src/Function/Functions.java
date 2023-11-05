@@ -137,13 +137,6 @@ public class Functions {
         }
     }
     
-    public static double getRound(double k, String pattern) {
-        DecimalFormat df = new DecimalFormat(pattern);
-        String s = df.format(k);
-        double result = Double.parseDouble(s);
-        return result;
-    }
-    
     public static int getRandomInt() {
         Random rand = new Random();
         return rand.nextInt();
@@ -170,7 +163,7 @@ public class Functions {
         StringBuilder brandID = new StringBuilder();
 
         do {
-            int x = getRandomIntInRange(0, 9); // Số từ 0-9
+            int x = getRandomIntInRange(0, 9); 
             char y = alphabet.charAt(getRandomIntInRange(0, alphabet.length() - 1)); 
             char z = alphabet.charAt(getRandomIntInRange(0, alphabet.length() - 1)); 
             int a = getRandomIntInRange(0, 9); 
