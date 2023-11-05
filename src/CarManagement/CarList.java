@@ -20,6 +20,19 @@ public class CarList extends ArrayList<Car> {
     public CarList(BrandList bList) {
         brandList = bList;
     }
+    
+    public void genRandomCar() {
+        System.out.print("Enter number of cars you want to generate: ");
+        int numberOfGenerations = sc.nextInt();
+        for (int i = 0; i < numberOfGenerations; i++) {
+            carID = Functions.genRandomCarID(carIDList);
+            brand = brandList.get(Functions.getRandomIntInRange(0, brandList.size() - 1));
+            color = Functions.genRandomColor();
+            frameID = Functions.genRandomFrameID(frameIDList);
+            engineID = "E" + frameID.substring(1);
+            this.add(new Car(carID, brand, color, frameID, engineID));
+        }
+    }
 
     public boolean loadFromFile(String filename) {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
@@ -101,7 +114,7 @@ public class CarList extends ArrayList<Car> {
     public void addCar() {
         int pos;
         do {
-            carID = Functions.getID("Input car ID: ", "The carID must not be null. Try again !");
+            carID = Functions.setID("Input car ID: ", "The carID must not be blank. Try again !");
             pos = searchID(carID);
             if (pos >= 0) {
                 System.out.println("This brand ID is existed. Try another one!");
@@ -109,9 +122,9 @@ public class CarList extends ArrayList<Car> {
         } while (pos != -1);
 
         Brand brand = mnu.ref_getChoice(brandList);
-        color = Functions.getString("Input color: ", "The color must not be null. Try again !");
+        color = Functions.setString("Input color: ", "The color must not be blank. Try again !");
         do {
-            frameID = Functions.getID("Input frame ID: ", "The frame ID must be in F00000 format and not be duplicated. Try again !", "F[0-9][0-9][0-9][0-9][0-9]");
+            frameID = Functions.setID("Input frame ID: ", "The frame ID must be in F00000 format and not be duplicated. Try again !", "F[0-9][0-9][0-9][0-9][0-9]");
             pos = searchFrame(frameID);
             if (pos >= 0) {
                 System.out.println("This frame ID is existed. Try another one!");
@@ -119,7 +132,7 @@ public class CarList extends ArrayList<Car> {
         } while (pos != -1);
 
         do {
-            engineID = Functions.getID("Input engine ID: ", "The engine ID must be in E00000 format and not be duplicated. Try again !", "E[0-9][0-9][0-9][0-9][0-9]");
+            engineID = Functions.setID("Input engine ID: ", "The engine ID must be in E00000 format and not be duplicated. Try again !", "E[0-9][0-9][0-9][0-9][0-9]");
             pos = searchEngine(engineID);
             if (pos >= 0) {
                 System.out.println("This engine ID is existed. Try another one!");
@@ -132,7 +145,7 @@ public class CarList extends ArrayList<Car> {
     public void printBasedBrandName() {
         String aPartOfBrandName;
         int count = 0;
-        aPartOfBrandName = Functions.getString("Input brand name: ", "The brand name must not be null. Try again !");
+        aPartOfBrandName = Functions.setString("Input brand name: ", "The brand name must not be blank. Try again !");
         for (int i = 0; i < this.size(); i++) {
             if ((this.get(i).brand.getBrandName()).contains(aPartOfBrandName)) {
                 System.out.println(this.get(i).screenString());
@@ -149,7 +162,7 @@ public class CarList extends ArrayList<Car> {
         this.listFullCars();
         int pos;
         String removedID;
-        removedID = Functions.getID("Input car ID to remove: ", "The carID must not be null. Try again !");
+        removedID = Functions.setID("Input car ID to remove: ", "The carID must not be null. Try again !");
         pos = searchID(removedID);
         if (pos >= 0) {
             System.out.println("Are you sure to remove car with id " + this.get(pos).getCarID());
@@ -170,7 +183,7 @@ public class CarList extends ArrayList<Car> {
     public boolean removeCarBaseOnIndex() {
         this.listFullCars();
         int index;
-        index = Functions.getAnInteger("Input index of car to remove: ", "The index must be a number. Try again !");
+        index = Functions.setAnInteger("Input index of car to remove: ", "The index must be a number. Try again !");
         if (index - 1 >= 0 && index - 1 < this.size()) {
             System.out.println("Are you sure to remove car with id " + this.get(index - 1).getCarID());
             System.out.print("Please choose Y/N: ");
@@ -197,7 +210,7 @@ public class CarList extends ArrayList<Car> {
         mnu.addNewOption("6. Exit");
         int choice;
         String exitPoint = "Y";
-        String updatedID = Functions.getID("Input car ID to update: ", "The carID must not be null. Try again !");
+        String updatedID = Functions.setID("Input car ID to update: ", "The carID must not be blank. Try again !");
         int posCar = searchID(updatedID);
         int pos;
         if (posCar == -1) {
@@ -223,7 +236,7 @@ public class CarList extends ArrayList<Car> {
                         }
                         break;
                     case 2:
-                        color = Functions.getString("Input color: ", "The color must not be null. Try again !");
+                        color = Functions.setString("Input color: ", "The color must not be blank. Try again !");
                         x.setColor(color);
                         System.out.println("Car has been updated successfully !");
                         System.out.println("Do you want to continue updating the car with ID " + x.getCarID());
@@ -235,7 +248,7 @@ public class CarList extends ArrayList<Car> {
                         break;
                     case 3:
                         do {
-                            frameID = Functions.getID("Input frame ID: ", "The frame ID must be in F00000 format and not be duplicated. Try again !", "F[0-9][0-9][0-9][0-9][0-9]");
+                            frameID = Functions.setID("Input frame ID: ", "The frame ID must be in F00000 format and not be duplicated. Try again !", "F[0-9][0-9][0-9][0-9][0-9]");
                             pos = searchFrame(frameID);
                             if (pos >= 0 && !frameID.equals(x.getFrameID())) {
                                 System.out.println("This frame ID is existed. Try another one!");
@@ -252,7 +265,7 @@ public class CarList extends ArrayList<Car> {
                         break;
                     case 4:
                         do {
-                            engineID = Functions.getID("Input engine ID: ", "The engine ID must be in E00000 format and not be duplicated. Try again !", "E[0-9][0-9][0-9][0-9][0-9]");
+                            engineID = Functions.setID("Input engine ID: ", "The engine ID must be in E00000 format and not be duplicated. Try again !", "E[0-9][0-9][0-9][0-9][0-9]");
                             pos = searchEngine(engineID);
                             if (pos >= 0 && !engineID.equals(x.getEngineID())) {
                                 System.out.println("This engine ID is existed. Try another one!");
@@ -269,16 +282,16 @@ public class CarList extends ArrayList<Car> {
                         break;
                     case 5:
                         brand = mnu.ref_getChoice(brandList);
-                        color = Functions.getString("Input color: ", "The color must not be null. Try again !");
+                        color = Functions.setString("Input color: ", "The color must not be blank. Try again !");
                         do {
-                            frameID = Functions.getID("Input frame ID: ", "The frame ID must be in F00000 format and not be duplicated. Try again !", "F[0-9][0-9][0-9][0-9][0-9]");
+                            frameID = Functions.setID("Input frame ID: ", "The frame ID must be in F00000 format and not be duplicated. Try again !", "F[0-9][0-9][0-9][0-9][0-9]");
                             pos = searchFrame(frameID);
                             if (pos >= 0 && !frameID.equals(x.getFrameID())) {
                                 System.out.println("This frame ID is existed. Try another one!");
                             }
                         } while (pos != -1 && !frameID.equals(x.getFrameID()));
                         do {
-                            engineID = Functions.getID("Input engine ID: ", "The engine ID must be in E00000 format and not be duplicated. Try again !", "E[0-9][0-9][0-9][0-9][0-9]");
+                            engineID = Functions.setID("Input engine ID: ", "The engine ID must be in E00000 format and not be duplicated. Try again !", "E[0-9][0-9][0-9][0-9][0-9]");
                             pos = searchEngine(engineID);
                             if (pos >= 0 && !engineID.equals(x.getEngineID())) {
                                 System.out.println("This engine ID is existed. Try another one!");

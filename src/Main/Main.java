@@ -47,7 +47,7 @@ public class Main {
                     brandList.addBrand();
                     break;
                 case 4:
-                    brandID = Functions.getID("Input brand ID: ", "The brandID must not be blank. Try again !");
+                    brandID = Functions.setID("Input brand ID: ", "The brandID must not be blank. Try again !");
                     if (brandList.searchID(brandID) == -1) {
                         System.out.print("Brand ID is not found !");
                     } else {

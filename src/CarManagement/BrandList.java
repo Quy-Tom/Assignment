@@ -18,6 +18,18 @@ public class BrandList extends ArrayList<Brand> {
     public BrandList() {
     }
     
+    public void genRandomBrand() {
+        System.out.print("Enter number of brands you want to generate: ");
+        int numberOfGenerations = sc.nextInt();
+        for (int i = 0; i < numberOfGenerations; i++) {
+            brandID = Functions.genRandomBrandID(brandIDList);
+            brandName = Functions.genRandomBrandName();
+            soundBrand = Functions.genRandomSoundBrand();
+            price = Functions.getRound(Functions.getRandomDoubleInRange(1.0, 10.0), "#.###");
+            this.add(new Brand(brandID, brandName, soundBrand, price));
+        }
+    }
+    
     public boolean loadFromFile(String filename) {
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String[] arr;
@@ -74,15 +86,15 @@ public class BrandList extends ArrayList<Brand> {
     public void addBrand() {
         int pos;
         do {
-            brandID = Functions.etID("Input brand ID: ", "The brandID must not be null. Try again !");
+            brandID = Functions.setID("Input brand ID: ", "The brandID must not be blank. Try again !");
             pos = searchID(brandID);
             if (pos >= 0) {
                 System.out.println("This brand ID is existed. Try another one!");
             }
         } while (pos != -1);
 
-        brandName = Functions.setString("Input brand name: ", "The brand name must not be null. Try again !");
-        soundBrand = Functions.setString("Input sound brand: ", "The sound brand must not be null. Try again !");
+        brandName = Functions.setString("Input brand name: ", "The brand name must not be blank. Try again !");
+        soundBrand = Functions.setString("Input sound brand: ", "The sound brand must not be blank. Try again !");
         price = Functions.setADouble("Input price: ", "The price must be a number and greater than 0. Try again !", 0);
         this.add(new Brand(brandID, brandName, soundBrand, price));
         brandIDList.add(brandID);
