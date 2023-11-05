@@ -25,7 +25,7 @@ public class BrandList extends ArrayList<Brand> {
             brandID = Functions.genRandomBrandID(brandIDList);
             brandName = Functions.genRandomBrandName();
             soundBrand = Functions.genRandomSoundBrand();
-            price = Functions.getRound(Functions.getRandomDoubleInRange(1.0, 10.0), "#.###");
+            price = Functions.getRandomDoubleInRange(1.0, 10.0);
             this.add(new Brand(brandID, brandName, soundBrand, price));
         }
     }
