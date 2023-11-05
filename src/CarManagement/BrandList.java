@@ -161,5 +161,26 @@ public class BrandList extends ArrayList<Brand> {
             } while (choice >= 1 && choice <= 4 && exitPoint.equals("Y"));
         }
     }
-    
+     public void listBrands() {
+        String format = "| %-5s | %-8s | %-29s | %-16s | %-5s |%n";
+        System.out.println("Brand list");
+        System.out.format("+-------+----------+-------------------------------+------------------+-------+%n");
+        System.out.format("| Index | Brand ID | Brand Name                    | Sound Brand      | Price |%n");
+        System.out.format("+-------+----------+-------------------------------+------------------+-------+%n");
+
+        for (Brand brand : this) {
+            String index = String.format("%d", this.indexOf(brand) + 1);
+            brandID = brand.getBrandID();
+            brandName = brand.getBrandName();
+            soundBrand = brand.getSoundBrand();
+            String price = String.format("%.3f", brand.getPrice()); // Làm tròn 3 chữ số thập phân
+            System.out.format(format, index, brandID, brandName, soundBrand, price);
+        }
+
+        System.out.format("+-------+----------+-------------------------------+------------------+-------+%n");
+        System.out.println("There are " + this.size() + " brand(s) in the list.");
+    }
+
 }
+    
+
