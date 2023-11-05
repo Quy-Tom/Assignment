@@ -13,8 +13,8 @@ public class Main {
         int choice;
         String brandID, brandCarID;
         Menu menu = new Menu("CAR MANAGER APPLICATION");
-        String fileCarsName = "F:\\Semester 2\\PRO192_Official\\Assignment\\src\\data\\cars.txt";
-        String fileBrandsName = "F:\\Semester 2\\PRO192_Official\\Assignment\\src\\data\\brands.txt";
+        String fileCarsName = "D:\\AssigtmentPRO192\\Assignment\\src\\CarManagement\\cars.txt";
+        String fileBrandsName = "D:\\AssigtmentPRO192\\Assignment\\src\\CarManagement\\brands.txt";
         BrandList brandList = new BrandList();//test github
         CarList carList = new CarList(brandList);
         brandList.loadFromFile(fileBrandsName);

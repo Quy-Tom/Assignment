@@ -190,7 +190,7 @@ public class Functions {
     }
     
     public static String genRandomBrandName() {
-        String[] brand = {"BMW 3 Series","BMW 5 Series","BMW 7 Series","BMW X3","BMW X5","BMW X7","BMW Z4","BMW M3","BMW M5","BMW M8","BMW i3","BMW i4","BMW X1","BMW X6","BMW 8 Series","BMW X2","BMW M2","BMW X4","BMW X8", "BMW Z3",};
+        String[] bn = {"BMW 3 Series","BMW 5 Series","BMW 7 Series","BMW X3","BMW X5","BMW X7","BMW Z4","BMW M3","BMW M5","BMW M8","BMW i3","BMW i4","BMW X1","BMW X6","BMW 8 Series","BMW X2","BMW M2","BMW X4","BMW X8", "BMW Z3",};
         return bn[getRandomIntInRange(0, bn.length - 1)];      
     }
     
