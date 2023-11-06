@@ -1,7 +1,10 @@
 package Main;
 
 import CarManagement.BrandList;
+import CarManagement.Car;
 import CarManagement.CarList;
+import CarManagement.CustomerList;
+import CarManagement.InforCustomer;
 import java.util.*;
 import java.lang.*;
 import Menu.Menu;
@@ -20,6 +23,7 @@ public class Main {
         CarList carList = new CarList(brandList);
         brandList.loadFromFile(fileBrandsName);
         carList.loadFromFile(fileCarsName);
+        CustomerList cl = new CustomerList();
         menu.addNewOption("1 - List all brands");
         menu.addNewOption("2 - Generate random brands");
         menu.addNewOption("3 - Add a new brand");
@@ -34,7 +38,10 @@ public class Main {
         menu.addNewOption("12 - Update a car based on its ID");
         menu.addNewOption("13 - Save cars to file, named cars.txt");
         menu.addNewOption("14 - Remove all car on the list");
-         menu.addNewOption("13 - Exit the process");
+        menu.addNewOption("15 - Create a bill");
+        menu.addNewOption("16 - Print all the bills");
+        menu.addNewOption("17 - Find customer by CarID");
+        menu.addNewOption("18 - Exit the process");
 
         do {
             menu.printMenu();
@@ -94,6 +101,18 @@ public class Main {
                     carList.removeCarList();
                     break;
                 case 15:
+                    System.out.println("------ Enter your Bill------");
+                    cl.makeAnBill();
+                    System.out.println();
+                    break;
+                case 16:
+                    cl.printListCustomer();
+                    break;
+                case 17:
+                    System.out.println("Input CarID that you want to check information of customer");
+                    cl.checkAvailableByCarID();
+                    break;
+                case 18:
                     x = false;
                     break;
             }

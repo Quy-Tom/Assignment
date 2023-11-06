@@ -54,6 +54,7 @@ public class Car implements Comparable<Car> {
     public void setBrand(Brand brand) {
         this.brand = brand;
     }
+    
 
     @Override
     public int compareTo(Car car) {
@@ -70,5 +71,22 @@ public class Car implements Comparable<Car> {
      public String screenString () {
         return brand + "\n" + carID + ", " + color + ", " + frameID + ", " + engineID;
     }
+     
+    @Override
+     public int hashCode() {
+         final int prime = 31;
+         int result = 1;
+         result = prime * result + ((carID == null) ? 0 : carID.hashCode());
+         return result;
+     }
+     
+     public boolean equals(Object obj) {
+         if(this == obj) return true;
+         if(obj == null || this.getClass() != obj.getClass()) return false;
+         Car other = (Car) obj;
+         return carID.equals(other.carID);
+     }
+         
+     
 }
 

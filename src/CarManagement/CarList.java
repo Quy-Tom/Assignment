@@ -347,4 +347,5 @@ public class CarList extends ArrayList<Car> {
         this.clear();
         System.out.println("All cars in the list has been removed");
     }
+    
 }
