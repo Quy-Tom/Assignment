@@ -19,3 +19,4 @@ B7-AT18, BMW M2, SonicHarbor: 5.437
 B8-EB43, BMW X7, AcousticMomentum: 5.813
 B0-HH96, BMW 8 Series, SoniBlend: 8.226
 B7-XY04, BMW 3 Series, PulseFusion: 3.04
+BWM-MS75, BMW 700Li S, Sony: 3.5

@@ -37,8 +37,8 @@ public class Menu {
 
     public int int_getChoice() {
         int maxOption = optionList.size();
-        String inputMsg = "Please choose an option [1.." + maxOption + "]: ";
-        String errorMsg = "You must choose an option 1.." + maxOption;
+        String inputMsg = "Please choose an option [1 - " + maxOption + "]: ";
+        String errorMsg = "You must choose an option 1 - " + maxOption;
         return Functions.setAnInteger(inputMsg, errorMsg, 1, maxOption);
     }
     
@@ -58,8 +58,8 @@ public class Menu {
         for (int i = 0; i < maxOption; i++) {
             System.out.println((i + 1) + ". " + options.get(i));
         }
-        String inputMsg = "Please choose an option [1.." + maxOption + "]: ";
-        String errorMsg = "You must choose an option 1.." + maxOption;
+        String inputMsg = "Please choose an option [1 - " + maxOption + "]: ";
+        String errorMsg = "You must choose an option 1 - " + maxOption;
         response = Functions.setAnInteger(inputMsg, errorMsg, 1, maxOption);
         return response;
     }

@@ -11,6 +11,7 @@ public class Main {
 
     public static void main(String[] args) {
         int choice;
+        boolean x = true;
         String brandID, brandCarID;
         Menu menu = new Menu("CAR MANAGER APPLICATION");
         String fileCarsName = "D:\\AssigtmentPRO192\\Assignment\\src\\CarManagement\\cars.txt";
@@ -32,6 +33,7 @@ public class Main {
         menu.addNewOption("11 - Remove a car based on its ID");
         menu.addNewOption("12 - Update a car based on its ID");
         menu.addNewOption("13 - Save cars to file, named cars.txt");
+        menu.addNewOption("14 - Exit the process");
 
         do {
             menu.printMenu();
@@ -86,8 +88,12 @@ public class Main {
                     break;
                 case 13:
                     carList.saveToFile(fileCarsName);
-                    break;                    
+                    break;
+                case 14:
+                    x = false;
+                    break;
+                
             }
-        } while ((choice > 0) && (choice <= 13));
+        } while ( x );
     }
 }
