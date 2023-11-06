@@ -103,11 +103,11 @@ public class BrandList extends ArrayList<Brand> {
 
     public void updateBrand() {
         Menu mnu = new Menu("Please choose the characteristics of brand that you want to update");
-        mnu.addNewOption("1. Update brand name");
-        mnu.addNewOption("2. Update sound brand");
-        mnu.addNewOption("3. Update price");
-        mnu.addNewOption("4. Update all");
-        mnu.addNewOption("5. Exit");
+        mnu.addNewOption("1 - Update brand name");
+        mnu.addNewOption("2 - Update sound brand");
+        mnu.addNewOption("3 - Update price");
+        mnu.addNewOption("4 - Update all");
+        mnu.addNewOption("5 - Exit");
         int choice;
         String exitPoint = "Y";
         brandID = Functions.setID("Input brand ID: ", "The brandID must not be blank. Try again !");
