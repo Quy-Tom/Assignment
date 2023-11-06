@@ -102,15 +102,15 @@ public class BrandList extends ArrayList<Brand> {
     }
 
     public void updateBrand() {
-        Menu menu = new Menu("Please choose the characteristics of brand that you want to update");
-        menu.addNewOption("1. Update brand name");
-        menu.addNewOption("2. Update sound brand");
-        menu.addNewOption("3. Update price");
-        menu.addNewOption("4. Update all");
-        menu.addNewOption("5. Exit");
+        Menu mnu = new Menu("Please choose the characteristics of brand that you want to update");
+        mnu.addNewOption("1. Update brand name");
+        mnu.addNewOption("2. Update sound brand");
+        mnu.addNewOption("3. Update price");
+        mnu.addNewOption("4. Update all");
+        mnu.addNewOption("5. Exit");
         int choice;
         String exitPoint = "Y";
-        brandID = Functions.setID("Input brand ID: ", "The brandID must not be null. Try again !");
+        brandID = Functions.setID("Input brand ID: ", "The brandID must not be blank. Try again !");
         int pos = searchID(brandID);
         if (pos == -1) {
             System.out.println("Not found !");
@@ -119,12 +119,11 @@ public class BrandList extends ArrayList<Brand> {
                 Brand x = this.get(pos);
                 System.out.println("Here is the Brand before updating");
                 System.out.println(x);
-                menu.printMenu();
-                choice = menu.int_getChoice();
-
+                mnu.printMenu();
+                choice = mnu.int_getChoice();
                 switch (choice) {
                     case 1:
-                        brandName = Functions.setString("Input brand name: ", "The brand name must not be null. Try again !");
+                        brandName = Functions.setString("Input brand name: ", "The brand name must not be blank. Try again !");
                         x.setBrandName(brandName);
                         System.out.println("Brand has been updated successfully !");
                         System.out.println("Do you want to continue updating the brand with ID " + x.getBrandID());
@@ -135,7 +134,7 @@ public class BrandList extends ArrayList<Brand> {
                         }
                         break;
                     case 2:
-                        soundBrand = Functions.setString("Input sound brand: ", "The sound brand must not be null. Try again !");
+                        soundBrand = Functions.setString("Input sound brand: ", "The sound brand must not be blank. Try again !");
                         x.setSoundBrand(soundBrand);
                         System.out.println("Brand has been updated successfully !");
                         System.out.println("Do you want to continue updating the brand with ID " + x.getBrandID());
@@ -157,8 +156,8 @@ public class BrandList extends ArrayList<Brand> {
                         }
                         break;
                     case 4:
-                        brandName = Functions.setString("Input brand name: ", "The brand name must not be null. Try again !");
-                        soundBrand = Functions.setString("Input sound brand: ", "The sound brand must not be null. Try again !");
+                        brandName = Functions.setString("Input brand name: ", "The brand name must not be blank. Try again !");
+                        soundBrand = Functions.setString("Input sound brand: ", "The sound brand must not be blank. Try again !");
                         price = Functions.setADouble("Input price: ", "The price must be a number and greater than 0. Try again !", 0);
                         x.setBrandName(brandName);
                         x.setSoundBrand(soundBrand);
@@ -175,6 +174,7 @@ public class BrandList extends ArrayList<Brand> {
             } while (choice >= 1 && choice <= 4 && exitPoint.equals("Y"));
         }
     }
+    
      public void listBrands() {
         String format = "| %-5s | %-8s | %-29s | %-16s | %-5s |%n";
         System.out.println("Brand list");

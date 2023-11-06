@@ -15,7 +15,7 @@ public class Main {
         Menu menu = new Menu("CAR MANAGER APPLICATION");
         String fileCarsName = "D:\\AssigtmentPRO192\\Assignment\\src\\CarManagement\\cars.txt";
         String fileBrandsName = "D:\\AssigtmentPRO192\\Assignment\\src\\CarManagement\\brands.txt";
-        BrandList brandList = new BrandList();//test github
+        BrandList brandList = new BrandList();
         CarList carList = new CarList(brandList);
         brandList.loadFromFile(fileBrandsName);
         carList.loadFromFile(fileCarsName);
