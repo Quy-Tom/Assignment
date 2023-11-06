@@ -342,5 +342,8 @@ public class CarList extends ArrayList<Car> {
         System.out.format("+-------+--------+----------+--------+--------+-----------+%n");
         System.out.println("There are " + this.size() + " car(s) in the list.");
     }
-    
+    public void removeCarList () {
+        this.clear();
+        System.out.println("This List has been removed");
+    }
 }
