@@ -33,7 +33,8 @@ public class Main {
         menu.addNewOption("11 - Remove a car based on its ID");
         menu.addNewOption("12 - Update a car based on its ID");
         menu.addNewOption("13 - Save cars to file, named cars.txt");
-        menu.addNewOption("14 - Exit the process");
+        menu.addNewOption("14 - Remove all car on the list");
+         menu.addNewOption("13 - Exit the process");
 
         do {
             menu.printMenu();
@@ -90,10 +91,12 @@ public class Main {
                     carList.saveToFile(fileCarsName);
                     break;
                 case 14:
+                    carList.removeCarList();
+                    break;
+                case 15:
                     x = false;
                     break;
-                
             }
-        } while ( x );
+        } while (x);
     }
 }

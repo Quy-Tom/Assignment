@@ -32,6 +32,7 @@ public class CarList extends ArrayList<Car> {
             engineID = "E" + frameID.substring(1);
             this.add(new Car(carID, brand, color, frameID, engineID));
         }
+        System.out.println("Has generated " + numberOfGenerations + " car(s) successfully");
     }
 
     public boolean loadFromFile(String filename) {
@@ -344,6 +345,6 @@ public class CarList extends ArrayList<Car> {
     }
     public void removeCarList () {
         this.clear();
-        System.out.println("This List has been removed");
+        System.out.println("All cars in the list has been removed");
     }
 }

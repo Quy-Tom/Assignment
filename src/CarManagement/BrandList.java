@@ -153,6 +153,7 @@ public class BrandList extends ArrayList<Brand> {
             price = Functions.getRandomDoubleInRange(1.0, 10.0);
             this.add(new Brand(brandID, brandName, soundBrand, price));
         }
+        System.out.println("Has generated " + numberOfGenerations + " brand(s) successfully");
     }
     
     public boolean loadFromFile(String filename) {
