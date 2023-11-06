@@ -41,7 +41,7 @@ public class CarList extends ArrayList<Car> {
             while ((line != null)) {
                 arr = line.split(",");
                 carID = arr[0].trim();
-                int index = brandList.searchID(arr[1].trim());
+                int index = brandList.searchBrandBaseOnID(arr[1].trim());
                 if (index != - 1) {
                     brand = brandList.get(index);
                 }

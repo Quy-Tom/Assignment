@@ -40,7 +40,7 @@ public class Main {
             choice = menu.int_getChoice();
             switch (choice) {
                 case 1:
-                    brandList.listBrands();
+                    brandList.listAllBrands();
                     break;
                 case 2:
                     brandList.genRandomBrand();
@@ -50,10 +50,10 @@ public class Main {
                     break;
                 case 4:
                     brandID = Functions.setID("Input brand ID: ", "The brandID must not be blank. Try again !");
-                    if (brandList.searchID(brandID) == -1) {
+                    if (brandList.searchBrandBaseOnID(brandID) == -1) {
                         System.out.print("Brand ID is not found !");
                     } else {
-                        System.out.println(brandList.get(brandList.searchID(brandID)).toString());
+                        System.out.println(brandList.get(brandList.searchBrandBaseOnID(brandID)).toString());
                     }
                     break;
                 case 5:
